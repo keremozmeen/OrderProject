@@ -33,7 +33,6 @@
         <module>order-product-service</module>
         <module>order-order-service</module>
         <module>order-return-service</module>
-        <module>order-stock-service</module>
     </modules>
     
     <dependencyManagement>
