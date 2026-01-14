@@ -1,16 +1,15 @@
-
-FROM maven:3.8.4-openjdk-17-slim AS build
+FROM maven:3.9.6-amazoncorretto-17 AS build
 WORKDIR /app
+
 
 COPY . .
 
-
 RUN mvn clean install -DskipTests
 
-FROM openjdk:17-jdk-slim
+
+FROM amazoncorretto:17-al2-jdk
 WORKDIR /app
 
-# Derlenen jar dosyasını al
 COPY --from=build /app/order-user-service/target/*.jar app.jar
 
 EXPOSE 8081
